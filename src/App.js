@@ -4,18 +4,29 @@ import { useState } from "react";
 
 function App() {
   const [people, setPeople] = useState(data);
-  console.log(people);
+
+  const reloadAllItems = () => {
+    setPeople(data);
+  };
+
+  const handleDelete = (id) => {
+    setPeople(people.filter((item) => item.id !== id));
+  };
 
   return (
     <section>
       <div className="container">
         <h2 style={{ color: "var(--bg-blue)" }}>Prossimi incontri</h2>
         <div className="people-list">
-          <List></List>
+          <List data={people} handleDelete={handleDelete} />
         </div>
         <div className="btn-group">
-          <button className="btn btn-reset">Reload</button>
-          <button className="btn btn-delete">Delete All</button>
+          <button className="btn btn-reset" onClick={reloadAllItems}>
+            Reload
+          </button>
+          <button className="btn btn-delete" onClick={() => setPeople([])}>
+            Delete All
+          </button>
         </div>
       </div>
     </section>
