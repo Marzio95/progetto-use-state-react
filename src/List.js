@@ -1,11 +1,11 @@
 import React from "react";
 
 const List = () => {
-  return <ul></ul>;
+  return <ul>Lista</ul>;
 };
 
 const Person = () => {
-  return <article>perosna</article>;
+  return <article>persona</article>;
 };
 
 export default List;
